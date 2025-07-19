@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+<!--  Matching Search results for a query if no exact match is found -->
+{% block body %}
+
+
+    <div class="result">
+        <h2 class="heading">Search Results...</h2>
+        <!-- Display search results as links to access them directly
+                Uses an unordered list, list items and anchor tags -->
+        <ul class="list">
+             {% for result in searchresult %}
+             <li class="listitem"><a href="wiki/{{result}}">{{result}}</a></li>
+
+             {% endfor %}
+       
+        </ul>
+           
+    </div>
+
+
+{% endblock %}

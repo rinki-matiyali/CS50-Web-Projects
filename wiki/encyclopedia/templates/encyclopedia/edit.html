@@ -1,0 +1,38 @@
+{% extends "encyclopedia/layout.html" %}
+<!-- Edit an existing page/entry -->
+{% block body %}
+
+<!-- title : edit entry -->
+<div class="pagecontent">
+    <div class="heading">
+       <h2>Edit Entry</h2>
+    </div>
+
+    <!-- Form to edit a entry -->
+    <form action="{% url 'encyclopedia:editentry'%}" method="POST">
+    {% csrf_token %}
+
+    <!-- Heading section -->
+    <div class="area">
+        <div class="titlearea">
+        <label for="Input" id="input" class="label">Title</label>
+        <input type="text"  id ="input"  name="title" value="{{title}}" class="form-control" placeholder="Title">  
+    </div>
+
+    <!-- Content area -->
+    <div class="contentarea" >
+      <label for="content" id="content" class="label"> Content</label>
+      <textarea class="form-control " id ="content" rows="10" cols="150" name="content"  > {{content}}</textarea>
+    </div>
+
+    <!-- Submit Button  -->
+    <div class="submit">
+        <input type="submit" class="btn btn-primary btn-sm" value="Save changes">
+    </div>
+   
+</form>
+</div>
+    </div>
+    
+
+{% endblock %}

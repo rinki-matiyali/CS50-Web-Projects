@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+<!-- Displays the content of a given entry -->
+{% block nav %}
+<!-- Edit button to edit an entry -->
+     <div class="editpage">
+     <form action="{% url 'encyclopedia:editentry'%}" >
+     {% csrf_token%}
+     <input type="hidden" name="filename" value = "{{title}}">
+     <input type="submit" class="btn btn-primary btn-sm " value="Edit entry">
+     
+     </form>
+     </div>
+
+{% endblock %}
+{% block body %}
+<!-- Content of the page -->
+     <div class="content">
+          <div class="data">
+               {{data|safe}}
+          </div>
+     </div>
+
+{% endblock %}

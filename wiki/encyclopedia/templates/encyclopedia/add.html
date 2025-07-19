@@ -1,0 +1,36 @@
+{% extends "encyclopedia/layout.html" %}
+  <!-- Add a new entry -->
+{% block body %}
+<!-- Normal page heading -->
+    <div class="pagecontent">
+        <div class="heading">
+            <h2>Add page</h2>
+        </div>
+
+        <!-- Area to add data -->
+        <div class="area">
+            <form action="{%url 'encyclopedia:addentry' %}" method="POST">
+                {% csrf_token %}
+
+                <!-- Add Title -->
+                <div class="titlearea">
+                    <label for="title" id="input" class="label">Title</label>
+                    {{new.title}}
+                </div>
+
+                <!--  Add Content  -->
+                <div class="contentarea" >
+                    <label for="content" id="content" class="label"> Content</label>
+                    {{new.content}}
+                </div>
+            
+                <!-- Submit Button  -->
+                <div class="submit">
+                <input type="submit" class="btn btn-primary btn-sm" value="Add page">
+                </div>
+        </form>
+        </div>
+    </div>
+    
+    
+    {% endblock %}        

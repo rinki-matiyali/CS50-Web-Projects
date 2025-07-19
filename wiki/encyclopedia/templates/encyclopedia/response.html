@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+  <!-- Response message if a page or entry is not found or if 
+    someone tries to add an entry that already exists -->
+{% block body %}
+    <div class="result">
+        <!-- response message -->
+        <p class="message">
+            {{response}}
+        </p>
+        <!-- Link to back to home page -->
+        <p class="messgae">
+            <a href="{% url 'encyclopedia:index' %}" class="goback">Go back</a>
+        </p>
+    </div>
+    
+    {% endblock %}
